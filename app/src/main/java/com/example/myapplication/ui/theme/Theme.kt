@@ -11,12 +11,14 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
+/** Material color roles used when the app is in dark mode. */
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
     tertiary = Pink80
 )
 
+/** Material color roles used when dynamic colors are unavailable in light mode. */
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
@@ -33,6 +35,12 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+/** Applies the app's Material theme, using system dynamic colors when enabled and available.
+ *
+ * @param darkTheme Whether to use the dark color scheme; defaults to the system setting.
+ * @param dynamicColor Whether Android dynamic colors should be used on Android 12 and newer.
+ * @param content Composable UI that receives the configured [MaterialTheme].
+ */
 @Composable
 fun MyApplicationTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
